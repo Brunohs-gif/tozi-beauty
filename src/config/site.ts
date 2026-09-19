@@ -13,8 +13,8 @@ export const siteConfig = {
   whatsappNumber: '5511999999999',
   whatsappDefaultMessage: 'Olá! Gostaria de agendar uma avaliação na TOZI Beauty.',
 
-  instagramHandle: '@tozibeauty',
-  instagramUrl: 'https://instagram.com/tozibeauty',
+  instagramHandle: '@andressatozii',
+  instagramUrl: 'https://www.instagram.com/andressatozii/',
 
   address: 'Rua Exemplo, 123 — Jardins, São Paulo/SP',
   hours: [
