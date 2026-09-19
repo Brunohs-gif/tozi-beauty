@@ -28,18 +28,22 @@
 const unsplash = (id: string, w = 1200) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`
 
+/** Caminhos locais (/public/images/...) precisam do prefixo da base do site
+ *  (ex.: '/tozi-beauty/' no GitHub Pages) para não apontar para a raiz do domínio. */
+const local = (path: string) => `${import.meta.env.BASE_URL}images/${path}`
+
 /** Imagem principal da hero — foto real recebida */
-export const heroImage = '/images/biomedica-hero.jpeg'
+export const heroImage = local('biomedica-hero.jpeg')
 
 /** Foto da biomédica usada na seção "Sobre" e na seção pessoal — mesma constante nas duas, troque uma vez só. Foto real recebida */
-export const clinicianImage = '/images/biomedica-perfil.jpeg'
+export const clinicianImage = local('biomedica-perfil.jpeg')
 
 /** Foto secundária usada na composição da seção "Sobre". Pendente: /images/pele-detalhe.* */
 export const aboutSecondaryImage = unsplash('photo-1570172619644-dfd03ed5d881', 900)
 
 /** Imagens por procedimento (aparecem na lista editorial ao passar o mouse) */
 export const procedureImages: Record<string, string> = {
-  labios: '/images/procedimento-labios.jpg',
+  labios: local('procedimento-labios.jpg'),
   preenchimento: unsplash('photo-1552693673-1bf958298935', 1000),
   bioestimulador: unsplash('photo-1616394584738-fc6e612e71b9', 1000),
   toxina: unsplash('photo-1512290923902-8a9f81dc236c', 1000),
@@ -62,8 +66,8 @@ export const beforeAfterImages: Record<string, { before: string; after: string; 
     after: unsplash('photo-1570172619644-dfd03ed5d881', 900),
   },
   harmonia: {
-    before: '/images/antes-harmonia.jpg',
-    after: '/images/depois-harmonia.jpg',
-    zoom: '/images/foto-zoom-harmonia.jpg',
+    before: local('antes-harmonia.jpg'),
+    after: local('depois-harmonia.jpg'),
+    zoom: local('foto-zoom-harmonia.jpg'),
   },
 }
