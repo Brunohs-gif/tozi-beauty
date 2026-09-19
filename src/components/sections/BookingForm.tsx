@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { Loader2 } from 'lucide-react'
 import { procedures } from '../../data/procedures'
+import { siteConfig } from '../../config/site'
 import { Toast } from '../ui/Toast'
 import { RevealOnScroll } from '../ui/RevealOnScroll'
 
@@ -38,7 +39,7 @@ function validate(values: FormState): FormErrors {
 export function BookingForm() {
   const [values, setValues] = useState<FormState>(initialState)
   const [errors, setErrors] = useState<FormErrors>({})
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [toastVisible, setToastVisible] = useState(false)
 
   const handleChange = (field: keyof FormState) => (
@@ -47,7 +48,7 @@ export function BookingForm() {
     setValues((v) => ({ ...v, [field]: event.target.value }))
   }
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     const validationErrors = validate(values)
     setErrors(validationErrors)
@@ -55,15 +56,22 @@ export function BookingForm() {
 
     setStatus('submitting')
 
-    // TODO: substituir esta simulação por uma chamada real de API, ou pelo
-    // redirecionamento para o WhatsApp com os dados preenchidos (wa.me).
-    // Não há backend conectado neste projeto — o envio abaixo é apenas visual.
-    window.setTimeout(() => {
+    try {
+      const response = await fetch(siteConfig.formspreeEndpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(event.currentTarget as HTMLFormElement),
+      })
+
+      if (!response.ok) throw new Error('Falha no envio')
+
       setStatus('success')
       setToastVisible(true)
       setValues(initialState)
       window.setTimeout(() => setToastVisible(false), 4000)
-    }, 1100)
+    } catch {
+      setStatus('error')
+    }
   }
 
   const inputClasses = (hasError: boolean) =>
@@ -112,6 +120,7 @@ export function BookingForm() {
                 </label>
                 <input
                   id="name"
+                  name="name"
                   type="text"
                   value={values.name}
                   onChange={handleChange('name')}
@@ -133,6 +142,7 @@ export function BookingForm() {
                 </label>
                 <input
                   id="whatsapp"
+                  name="whatsapp"
                   type="tel"
                   value={values.whatsapp}
                   onChange={handleChange('whatsapp')}
@@ -155,6 +165,7 @@ export function BookingForm() {
                   </label>
                   <select
                     id="procedure"
+                    name="procedure"
                     value={values.procedure}
                     onChange={handleChange('procedure')}
                     className={inputClasses(Boolean(errors.procedure))}
@@ -182,6 +193,7 @@ export function BookingForm() {
                   </label>
                   <select
                     id="period"
+                    name="period"
                     value={values.period}
                     onChange={handleChange('period')}
                     className={inputClasses(Boolean(errors.period))}
@@ -207,6 +219,7 @@ export function BookingForm() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={3}
                   value={values.message}
                   onChange={handleChange('message')}
@@ -214,6 +227,12 @@ export function BookingForm() {
                   placeholder="Conte um pouco sobre o que você gostaria de avaliar"
                 />
               </div>
+
+              {status === 'error' && (
+                <p role="alert" className="text-xs text-terracotta">
+                  Não foi possível enviar sua solicitação. Tente novamente ou fale pelo WhatsApp.
+                </p>
+              )}
 
               <button
                 type="submit"

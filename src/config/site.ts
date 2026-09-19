@@ -16,6 +16,9 @@ export const siteConfig = {
   instagramHandle: '@andressatozii',
   instagramUrl: 'https://www.instagram.com/andressatozii/',
 
+  /** Endpoint do Formspree para onde o formulário de agendamento envia os dados por e-mail */
+  formspreeEndpoint: 'https://formspree.io/f/xjykkdgl',
+
   address: 'Rua Exemplo, 123 — Jardins, São Paulo/SP',
   hours: [
     { label: 'Terça a sexta', value: '10h às 19h' },
