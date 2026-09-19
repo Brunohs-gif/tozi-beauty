@@ -34,10 +34,6 @@ export function Hero() {
               Agendar avaliação
             </a>
           </div>
-
-          <p className="mt-14 font-serif text-lg italic text-coffee/70">
-            "Estética que respeita a sua identidade."
-          </p>
         </div>
 
         {/* Imagem */}

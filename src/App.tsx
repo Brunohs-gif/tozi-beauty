@@ -1,7 +1,6 @@
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
 import { Hero } from './components/sections/Hero'
-import { BrandStatement } from './components/sections/BrandStatement'
 import { AboutSection } from './components/sections/AboutSection'
 import { ProceduresSection } from './components/sections/ProceduresSection'
 import { BeforeAfterSection } from './components/sections/BeforeAfterSection'
@@ -19,7 +18,6 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <BrandStatement />
         <AboutSection />
         <ProceduresSection />
         <BeforeAfterSection />
