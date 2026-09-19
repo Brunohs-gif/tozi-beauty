@@ -18,6 +18,13 @@ export default {
       letterSpacing: {
         widest2: '0.28em',
       },
+      boxShadow: {
+        soft: '0 12px 30px -8px rgba(52,41,36,0.28)',
+        lift: '0 20px 45px -12px rgba(52,41,36,0.35)',
+      },
+      transitionTimingFunction: {
+        premium: 'cubic-bezier(0.32,0.72,0,1)',
+      },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },

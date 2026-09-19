@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { beforeAfterCases } from '../../data/beforeAfterCases'
 import { BeforeAfterSlider } from '../ui/BeforeAfterSlider'
+import { Eyebrow } from '../ui/Eyebrow'
 import { PhotoZoom } from '../ui/PhotoZoom'
 import { RevealOnScroll } from '../ui/RevealOnScroll'
 
@@ -12,10 +13,8 @@ export function BeforeAfterSection() {
     <section id="resultados" className="relative bg-sand/50 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <RevealOnScroll className="mb-14 max-w-xl">
-          <p className="mb-5 text-[13px] uppercase tracking-widest text-terracotta">
-            Resultados
-          </p>
-          <h2 className="font-serif text-4xl leading-tight text-ink sm:text-5xl">
+          <Eyebrow>Resultados</Eyebrow>
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-ink sm:text-5xl">
             Veja o detalhe.
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-coffee/75">
@@ -32,7 +31,7 @@ export function BeforeAfterSection() {
               role="tab"
               aria-selected={activeCase === index}
               onClick={() => setActiveCase(index)}
-              className={`rounded-full border px-5 py-2 text-[13px] transition-colors ${
+              className={`rounded-full border px-5 py-2 text-[13px] transition-all duration-300 ease-premium active:scale-[0.96] ${
                 activeCase === index
                   ? 'border-ink bg-ink text-cream'
                   : 'border-coffee/25 text-coffee/70 hover:border-coffee/50'

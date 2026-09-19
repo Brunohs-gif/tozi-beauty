@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
-import { MoveHorizontal } from 'lucide-react'
+import { ArrowsLeftRight } from '@phosphor-icons/react'
 
 interface BeforeAfterSliderProps {
   beforeSrc: string
@@ -124,9 +124,9 @@ export function BeforeAfterSlider({
           aria-valuenow={Math.round(position)}
           aria-valuetext={`${Math.round(position)}% da imagem de "antes" revelada`}
           onKeyDown={handleKeyDown}
-          className="absolute left-1/2 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full border border-gold/60 bg-cream text-coffee shadow-md transition-transform hover:scale-105 focus-visible:scale-105"
+          className="absolute left-1/2 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full border border-gold/60 bg-cream text-coffee shadow-soft transition-transform duration-300 ease-premium hover:scale-105 focus-visible:scale-105"
         >
-          <MoveHorizontal className="h-4 w-4" aria-hidden="true" />
+          <ArrowsLeftRight className="h-4 w-4" weight="light" aria-hidden="true" />
         </div>
       </div>
     </div>

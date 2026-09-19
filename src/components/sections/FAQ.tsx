@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { faqItems } from '../../data/faq'
 import { siteConfig } from '../../config/site'
 import { AccordionItem } from '../ui/AccordionItem'
+import { Eyebrow } from '../ui/Eyebrow'
 import { RevealOnScroll } from '../ui/RevealOnScroll'
 
 export function FAQ() {
@@ -11,10 +12,8 @@ export function FAQ() {
     <section id="duvidas" className="relative bg-sand/50 py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-6 sm:px-10">
         <RevealOnScroll className="mb-14">
-          <p className="mb-5 text-[13px] uppercase tracking-widest text-terracotta">
-            Dúvidas
-          </p>
-          <h2 className="font-serif text-4xl leading-tight text-ink sm:text-5xl">
+          <Eyebrow>Dúvidas</Eyebrow>
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-ink sm:text-5xl">
             Perguntas frequentes.
           </h2>
         </RevealOnScroll>
@@ -24,6 +23,7 @@ export function FAQ() {
             {faqItems.map((item, index) => (
               <AccordionItem
                 key={item.question}
+                number={String(index + 1).padStart(2, '0')}
                 title={item.question}
                 isOpen={openIndex === index}
                 onToggle={() => setOpenIndex((current) => (current === index ? null : index))}

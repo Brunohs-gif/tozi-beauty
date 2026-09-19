@@ -1,7 +1,8 @@
 import { useState, type FormEvent } from 'react'
-import { Loader2 } from 'lucide-react'
+import { CircleNotch } from '@phosphor-icons/react'
 import { procedures } from '../../data/procedures'
 import { siteConfig } from '../../config/site'
+import { Eyebrow } from '../ui/Eyebrow'
 import { Toast } from '../ui/Toast'
 import { RevealOnScroll } from '../ui/RevealOnScroll'
 
@@ -75,7 +76,7 @@ export function BookingForm() {
   }
 
   const inputClasses = (hasError: boolean) =>
-    `w-full border-b bg-transparent px-1 py-3 text-[15px] text-ink outline-none transition-colors placeholder:text-coffee/40 ${
+    `w-full border-b bg-transparent px-1 py-3 text-[15px] text-ink outline-none transition-colors duration-300 placeholder:text-coffee/40 ${
       hasError ? 'border-terracotta' : 'border-coffee/25 focus:border-ink'
     }`
 
@@ -83,10 +84,8 @@ export function BookingForm() {
     <section id="agendar" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-3xl px-6 sm:px-10">
         <RevealOnScroll className="mb-12">
-          <p className="mb-5 text-[13px] uppercase tracking-widest text-terracotta">
-            Agendamento
-          </p>
-          <h2 className="font-serif text-4xl leading-tight text-ink sm:text-5xl">
+          <Eyebrow>Agendamento</Eyebrow>
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-ink sm:text-5xl">
             Solicite um contato.
           </h2>
           <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-coffee/75">
@@ -98,7 +97,7 @@ export function BookingForm() {
           {status === 'success' ? (
             <div
               role="status"
-              className="rounded-sm border border-gold/40 bg-sand/60 p-8 text-center"
+              className="rounded-[1.75rem] border border-gold/40 bg-sand/60 p-8 text-center"
             >
               <p className="font-serif text-2xl text-ink">Recebemos a sua solicitação.</p>
               <p className="mt-3 text-sm leading-relaxed text-coffee/75">
@@ -237,9 +236,11 @@ export function BookingForm() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="inline-flex items-center gap-2 rounded-full bg-ink px-8 py-3.5 text-[13px] uppercase tracking-widest text-cream transition-colors hover:bg-coffee disabled:cursor-not-allowed disabled:opacity-70"
+                className="inline-flex items-center gap-2 rounded-full bg-ink px-8 py-3.5 text-[13px] uppercase tracking-widest text-cream transition-all duration-300 ease-premium hover:bg-coffee active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {status === 'submitting' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+                {status === 'submitting' && (
+                  <CircleNotch className="h-4 w-4 animate-spin" weight="light" aria-hidden="true" />
+                )}
                 Solicitar contato
               </button>
             </form>

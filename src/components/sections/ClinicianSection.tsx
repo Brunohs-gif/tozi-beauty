@@ -1,5 +1,6 @@
 import { clinicianImage } from '../../config/images'
 import { siteConfig } from '../../config/site'
+import { Eyebrow } from '../ui/Eyebrow'
 import { RevealOnScroll } from '../ui/RevealOnScroll'
 
 export function ClinicianSection() {
@@ -10,21 +11,21 @@ export function ClinicianSection() {
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
           <RevealOnScroll className="lg:col-span-5">
-            <div className="aspect-[4/5] w-full overflow-hidden rounded-sm bg-sand">
-              <img
-                src={clinicianImage}
-                alt={`Retrato de ${clinician.name}`}
-                className="h-full w-full object-cover"
-              />
+            <div className="rounded-[1.75rem] bg-sand/60 p-2 ring-1 ring-coffee/10">
+              <div className="aspect-[4/5] w-full overflow-hidden rounded-[1.35rem] bg-sand">
+                <img
+                  src={clinicianImage}
+                  alt={`Retrato de ${clinician.name}`}
+                  className="h-full w-full object-cover"
+                />
+              </div>
             </div>
           </RevealOnScroll>
 
           <div className="lg:col-span-7 lg:pl-6">
             <RevealOnScroll>
-              <p className="mb-5 text-[13px] uppercase tracking-widest text-terracotta">
-                Quem cuida de você
-              </p>
-              <h2 className="max-w-lg font-serif text-4xl leading-tight text-ink sm:text-5xl">
+              <Eyebrow>Quem cuida de você</Eyebrow>
+              <h2 className="mt-5 max-w-lg font-serif text-4xl leading-tight text-ink sm:text-5xl">
                 Cuidado técnico também pode ser delicado.
               </h2>
             </RevealOnScroll>

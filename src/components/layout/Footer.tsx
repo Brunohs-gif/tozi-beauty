@@ -1,4 +1,4 @@
-import { MessageCircle } from 'lucide-react'
+import { ChatCircle } from '@phosphor-icons/react'
 import { siteConfig } from '../../config/site'
 import { InstagramIcon } from '../ui/InstagramIcon'
 
@@ -18,7 +18,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-coffee/15 bg-ink text-cream">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:px-10 md:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:px-10 md:grid-cols-3">
         <div>
           <p className="font-serif text-2xl tracking-[0.12em]">{siteConfig.brandName}</p>
           <p className="mb-6 text-[10px] uppercase tracking-widest2 text-gold">
@@ -34,7 +34,7 @@ export function Footer() {
           <ul className="space-y-2.5 text-sm text-cream/75">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="transition-colors hover:text-cream">
+                <a href={link.href} className="transition-colors duration-300 hover:text-cream">
                   {link.label}
                 </a>
               </li>
@@ -50,9 +50,9 @@ export function Footer() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 transition-colors hover:text-cream"
+                className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-cream"
               >
-                <MessageCircle className="h-4 w-4 text-gold" aria-hidden="true" />
+                <ChatCircle className="h-4 w-4 text-gold" weight="light" aria-hidden="true" />
                 WhatsApp
               </a>
             </li>
@@ -61,25 +61,16 @@ export function Footer() {
                 href={siteConfig.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 transition-colors hover:text-cream"
+                className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-cream"
               >
                 <InstagramIcon className="h-4 w-4 text-gold" />
                 {siteConfig.instagramHandle}
               </a>
             </li>
             <li className="pt-1 text-cream/60">{siteConfig.address}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p className="mb-4 text-[11px] uppercase tracking-widest text-gold">Horários</p>
-          <ul className="space-y-2 text-sm text-cream/75">
-            {siteConfig.hours.map((h) => (
-              <li key={h.label} className="flex justify-between gap-4">
-                <span className="text-cream/60">{h.label}</span>
-                <span>{h.value}</span>
-              </li>
-            ))}
+            <li className="text-cream/60">
+              {siteConfig.hours.map((h) => `${h.label}: ${h.value}`).join(' · ')}
+            </li>
           </ul>
         </div>
       </div>
@@ -89,17 +80,9 @@ export function Footer() {
           <p className="mb-4 max-w-3xl text-xs leading-relaxed text-cream/50">
             {siteConfig.legal.professionalNotice}
           </p>
-          <div className="flex flex-col gap-3 text-xs text-cream/45 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} TOZI Beauty. Todos os direitos reservados.</p>
-            <div className="flex gap-5">
-              <a href="#" className="transition-colors hover:text-cream/80">
-                Política de privacidade
-              </a>
-              <a href="#" className="transition-colors hover:text-cream/80">
-                Termos de uso
-              </a>
-            </div>
-          </div>
+          <p className="text-xs text-cream/45">
+            © {new Date().getFullYear()} TOZI Beauty. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>

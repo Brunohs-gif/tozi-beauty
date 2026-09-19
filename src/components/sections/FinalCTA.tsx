@@ -1,4 +1,4 @@
-import { MessageCircle } from 'lucide-react'
+import { ChatCircle } from '@phosphor-icons/react'
 import { siteConfig } from '../../config/site'
 import { RevealOnScroll } from '../ui/RevealOnScroll'
 
@@ -29,7 +29,7 @@ export function FinalCTA() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#agendar"
-              className="rounded-full bg-gold px-8 py-3.5 text-[13px] uppercase tracking-widest text-ink transition-colors hover:bg-cream"
+              className="rounded-full bg-gold px-8 py-3.5 text-[13px] uppercase tracking-widest text-ink transition-all duration-300 ease-premium hover:bg-cream active:scale-[0.97]"
             >
               Agendar avaliação
             </a>
@@ -37,10 +37,12 @@ export function FinalCTA() {
               href={whatsappHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-cream/40 px-8 py-3.5 text-[13px] uppercase tracking-widest text-cream transition-colors hover:border-cream hover:bg-cream/10"
+              className="group inline-flex items-center gap-3 rounded-full border border-cream/40 pl-8 pr-2 py-2 text-[13px] uppercase tracking-widest text-cream transition-all duration-300 ease-premium hover:border-cream hover:bg-cream/10 active:scale-[0.97]"
             >
-              <MessageCircle className="h-4 w-4" aria-hidden="true" />
               Falar no WhatsApp
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cream/10 transition-transform duration-300 ease-premium group-hover:scale-105">
+                <ChatCircle className="h-4 w-4" weight="light" aria-hidden="true" />
+              </span>
             </a>
           </div>
         </RevealOnScroll>

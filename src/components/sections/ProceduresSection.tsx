@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from '@phosphor-icons/react'
 import { procedures } from '../../data/procedures'
+import { Eyebrow } from '../ui/Eyebrow'
 import { RevealOnScroll } from '../ui/RevealOnScroll'
 import { ProcedureDetail } from './ProcedureDetail'
 
@@ -15,10 +16,8 @@ export function ProceduresSection() {
     <section id="procedimentos" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         <RevealOnScroll className="mb-16 max-w-xl">
-          <p className="mb-5 text-[13px] uppercase tracking-widest text-terracotta">
-            Procedimentos
-          </p>
-          <h2 className="font-serif text-4xl leading-tight text-ink sm:text-5xl">
+          <Eyebrow>Procedimentos</Eyebrow>
+          <h2 className="mt-5 font-serif text-4xl leading-tight text-ink sm:text-5xl">
             Cada indicação parte de uma escuta, não de um catálogo.
           </h2>
         </RevealOnScroll>
@@ -49,7 +48,8 @@ export function ProceduresSection() {
                   </span>
                   <ArrowUpRight
                     aria-hidden="true"
-                    className={`h-5 w-5 shrink-0 text-terracotta transition-transform duration-300 ${
+                    weight="light"
+                    className={`h-5 w-5 shrink-0 text-terracotta transition-transform duration-300 ease-premium ${
                       activeIndex === index ? 'translate-x-0.5 -translate-y-0.5' : ''
                     }`}
                   />
@@ -60,19 +60,21 @@ export function ProceduresSection() {
 
           {/* Imagem que acompanha o item ativo */}
           <div className="hidden lg:col-span-5 lg:block">
-            <div className="sticky top-32 aspect-[3/4] w-full overflow-hidden rounded-sm bg-sand">
-              {procedures.map((procedure, index) => (
-                <img
-                  key={procedure.id}
-                  src={procedure.image}
-                  alt={`Referência visual para ${procedure.title} — imagem ilustrativa temporária`}
-                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out ${
-                    activeIndex === index ? 'opacity-100' : 'opacity-0'
-                  }`}
-                />
-              ))}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent p-6">
-                <p className="font-serif text-lg text-cream">{activeProcedure.title}</p>
+            <div className="sticky top-32 rounded-[1.75rem] bg-sand/60 p-2 ring-1 ring-coffee/10">
+              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[1.35rem] bg-sand">
+                {procedures.map((procedure, index) => (
+                  <img
+                    key={procedure.id}
+                    src={procedure.image}
+                    alt={`Referência visual para ${procedure.title} — imagem ilustrativa temporária`}
+                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out ${
+                      activeIndex === index ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                ))}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 via-ink/0 to-transparent p-6">
+                  <p className="font-serif text-lg text-cream">{activeProcedure.title}</p>
+                </div>
               </div>
             </div>
           </div>
