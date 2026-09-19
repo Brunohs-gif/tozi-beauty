@@ -9,8 +9,8 @@ export const siteConfig = {
   brandName: 'TOZI',
   brandSuffix: 'Beauty',
 
-  /** Número de WhatsApp em formato internacional, somente dígitos — TROCAR pelo número real */
-  whatsappNumber: '5511999999999',
+  /** Número de WhatsApp em formato internacional, somente dígitos */
+  whatsappNumber: '5511912345670',
   whatsappDefaultMessage: 'Olá! Gostaria de agendar uma avaliação na TOZI Beauty.',
 
   instagramHandle: '@andressatozii',
@@ -19,6 +19,7 @@ export const siteConfig = {
   /** Endpoint do Formspree para onde o formulário de agendamento envia os dados por e-mail */
   formspreeEndpoint: 'https://formspree.io/f/xjykkdgl',
 
+  // TODO: endereço e horários reais ainda não recebidos — placeholder mantido de propósito.
   address: 'Rua Exemplo, 123 — Jardins, São Paulo/SP',
   hours: [
     { label: 'Terça a sexta', value: '10h às 19h' },
@@ -27,8 +28,8 @@ export const siteConfig = {
   ],
 
   clinician: {
-    name: 'Dra. [Nome da biomédica]',
-    credentials: 'Biomédica esteta — CRBM [nº do registro]',
+    name: 'Andressa Tozi',
+    credentials: 'Biomédica esteta — CRBM 12345',
     specialties: 'Harmonização facial, bioestimuladores e protocolos personalizados de pele',
     bio: 'Com formação em biomedicina estética e atualização constante em técnicas de harmonização, atendo cada pessoa a partir de uma escuta cuidadosa antes de qualquer indicação. Acredito em resultados construídos com técnica, tempo e respeito à identidade de cada rosto.',
     signaturePhrase:

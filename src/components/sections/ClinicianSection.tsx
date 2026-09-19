@@ -11,14 +11,9 @@ export function ClinicianSection() {
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
           <RevealOnScroll className="lg:col-span-5">
             <div className="aspect-[4/5] w-full overflow-hidden rounded-sm bg-sand">
-              {/*
-                IMAGEM DE PLACEHOLDER — troque `clinicianImage` em
-                src/config/images.ts pela foto real da biomédica (mesma
-                constante usada na seção "Sobre").
-              */}
               <img
                 src={clinicianImage}
-                alt={`Retrato de ${clinician.name} — imagem temporária de banco de imagens`}
+                alt={`Retrato de ${clinician.name}`}
                 className="h-full w-full object-cover"
               />
             </div>

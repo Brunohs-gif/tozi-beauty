@@ -17,13 +17,9 @@ export function AboutSection() {
           {/* Composição visual */}
           <RevealOnScroll className="relative lg:col-span-5">
             <div className="relative aspect-[3/4] w-4/5 overflow-hidden rounded-sm bg-sand">
-              {/*
-                IMAGEM DE PLACEHOLDER — troque `clinicianImage` em
-                src/config/images.ts pela foto real da biomédica.
-              */}
               <img
                 src={clinicianImage}
-                alt="Retrato profissional evocando cuidado biomédico — imagem temporária de banco de imagens"
+                alt="Andressa Tozi, biomédica esteta da TOZI Beauty"
                 className="h-full w-full object-cover"
               />
             </div>

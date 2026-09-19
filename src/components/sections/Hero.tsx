@@ -43,13 +43,9 @@ export function Hero() {
         {/* Imagem */}
         <div className="relative animate-fadeIn opacity-0 [animation-delay:280ms] lg:col-span-6">
           <div className="relative ml-auto aspect-[4/5] w-full max-w-lg overflow-hidden rounded-sm bg-sand sm:aspect-[3/4]">
-            {/*
-              IMAGEM DE PLACEHOLDER (banco gratuito Unsplash) — troque `heroImage`
-              em src/config/images.ts por uma foto real e autorizada.
-            */}
             <img
               src={heroImage}
-              alt="Retrato editorial evocando beleza natural e pele iluminada — imagem temporária de banco de imagens"
+              alt="Andressa Tozi, biomédica esteta da TOZI Beauty"
               className="h-full w-full object-cover"
             />
           </div>
